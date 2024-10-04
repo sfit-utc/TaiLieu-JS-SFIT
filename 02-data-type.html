@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểu dữ liệu trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Kiểu dữ liệu trong JavaScript</h1>
+
+    <p>JavaScript <strong>không tự động nhận diện kiểu</strong> của biến theo cách mà các ngôn ngữ có kiểu dữ liệu tĩnh
+        (như C, C++ hay Java) thường làm. Thay vào đó, JavaScript sử dụng hệ thống <strong>kiểu dữ liệu động</strong>
+        (<em>dynamic typing</em>), nghĩa là một biến có thể chứa bất kỳ kiểu dữ liệu nào, và kiểu dữ liệu có thể thay
+        đổi trong quá trình thực thi chương trình mà không cần khai báo rõ ràng trước.</p>
+
+    <h2>Cách hoạt động của hệ thống kiểu động:</h2>
+    <ol>
+        <li>
+            <strong>Tự động suy luận kiểu dữ liệu</strong>: Khi bạn gán một giá trị cho biến, JavaScript sẽ tự động nhận
+            diện kiểu dữ liệu của giá trị được gán và lưu trữ nó trong biến. Bạn không cần khai báo kiểu dữ liệu của
+            biến khi khai báo.
+            <pre><code>let x = 42;        // Biến x có kiểu "number"
+x = "Hello";       // Bây giờ, x là kiểu "string"
+x = [1, 2, 3];     // Bây giờ, x là kiểu "array" (một đối tượng trong JavaScript)</code></pre>
+        </li>
+        <li>
+            <strong>Thay đổi kiểu dữ liệu của biến</strong>: Do tính động của JavaScript, bạn có thể gán giá trị kiểu dữ
+            liệu khác nhau cho cùng một biến trong suốt quá trình thực thi. JavaScript sẽ tự động thay đổi kiểu dữ liệu
+            của biến dựa trên giá trị mới.
+        </li>
+    </ol>
+
+    <h3>Một số ví dụ:</h3>
+    <pre><code>let y = 100;          // y có kiểu "number"
+console.log(typeof y); // Kết quả: "number"
+
+y = "JavaScript";     // y giờ có kiểu "string"
+console.log(typeof y); // Kết quả: "string"
+
+y = [1, 2, 3];        // y giờ là một mảng
+console.log(typeof y); // Kết quả: "object" (Trong JavaScript, mảng là một dạng đối tượng)</code></pre>
+
+    <h2>1. Kiểu dữ liệu cơ bản</h2>
+    <p>JavaScript hỗ trợ một số kiểu dữ liệu cơ bản, bao gồm:</p>
+
+    <h3>1.1. String</h3>
+    <ul>
+        <li><strong>Mô tả</strong>: Là kiểu dữ liệu để lưu trữ chuỗi ký tự.</li>
+        <li><strong>Cú pháp</strong>: Có thể sử dụng dấu nháy đơn (<code>'</code>), dấu nháy đôi (<code>"</code>), hoặc
+            dấu nháy ba (<code> `` </code>).</li>
+        <li><strong>Ví dụ</strong>:
+            <pre><code>let name = 'Mai Thanh Dat';
+let greeting = "Chào mừng bạn đến với JavaScript!";
+let message = `Xin chào, ${name}!`;  // Template literals
+console.log(message);  // Xin chào, Mai Thanh Dat!</code></pre>
+        </li>
+    </ul>
+
+    <h3>1.2. Number</h3>
+    <ul>
+        <li><strong>Mô tả</strong>: Là kiểu dữ liệu để lưu trữ số, bao gồm cả số nguyên và số thực.</li>
+        <li><strong>Ví dụ</strong>:
+            <pre><code>let age = 25;
+let height = 1.75;
+let total = age + height;  // 26.75
+console.log(total);</code></pre>
+        </li>
+    </ul>
+
+    <h3>1.3. Boolean</h3>
+    <ul>
+        <li><strong>Mô tả</strong>: Là kiểu dữ liệu để lưu trữ giá trị đúng hoặc sai (true/false).</li>
+        <li><strong>Ví dụ</strong>:
+            <pre><code>let isActive = true;
+let isAdult = age >= 18;  // true
+console.log(isAdult);</code></pre>
+        </li>
+    </ul>
+
+    <h3>1.4. Undefined</h3>
+    <ul>
+        <li><strong>Mô tả</strong>: Là kiểu dữ liệu chỉ ra rằng biến đã được khai báo nhưng chưa có giá trị.</li>
+        <li><strong>Ví dụ</strong>:
+            <pre><code>let x;
+console.log(x);  // undefined</code></pre>
+        </li>
+    </ul>
+
+    <h3>1.5. Null</h3>
+    <ul>
+        <li><strong>Mô tả</strong>: Là kiểu dữ liệu để chỉ định một giá trị "không" hoặc "trống".</li>
+        <li><strong>Ví dụ</strong>:
+            <pre><code>let y = null;
+console.log(y);  // null</code></pre>
+        </li>
+    </ul>
+
+    <h3>1.6. Symbol</h3>
+    <ul>
+        <li><strong>Mô tả</strong>: Là kiểu dữ liệu mới trong ECMAScript 6, được sử dụng để tạo ra các giá trị duy nhất
+            không thể so sánh.</li>
+        <li><strong>Ví dụ</strong>:
+            <pre><code>let sym = Symbol('description');
+console.log(sym);  // Symbol(description)</code></pre>
+        </li>
+    </ul>
+
+    <h2>2. Kiểu dữ liệu phức tạp</h2>
+
+    <h3>2.1. Object</h3>
+    <ul>
+        <li><strong>Mô tả</strong>: Là kiểu dữ liệu để lưu trữ tập hợp các cặp key-value.</li>
+        <li><strong>Cú pháp</strong>:
+            <pre><code>let person = {
+    name: 'Mai Thanh Dat',
+    age: 25,
+    isActive: true
+};
+console.log(person.name);  // Mai Thanh Dat</code></pre>
+        </li>
+    </ul>
+
+    <h3>2.2. Array</h3>
+    <ul>
+        <li><strong>Mô tả</strong>: Là kiểu dữ liệu để lưu trữ danh sách các giá trị.</li>
+        <li><strong>Cú pháp</strong>:
+            <pre><code>let fruits = ['Apple', 'Banana', 'Cherry'];
+console.log(fruits[0]);  // Apple</code></pre>
+        </li>
+    </ul>
+
+    <h2>3. Kiểm tra kiểu dữ liệu</h2>
+
+    <p>Để kiểm tra kiểu dữ liệu của một biến, bạn có thể sử dụng toán tử <code>typeof</code>:</p>
+
+    <h3>Ví dụ:</h3>
+    <pre><code>let x = 10;
+console.log(typeof x);  // "number"
+
+let y = 'Hello';
+console.log(typeof y);  // "string"
+
+let z = true;
+console.log(typeof z);  // "boolean"
+
+let obj = { name: 'Mai' };
+console.log(typeof obj);  // "object"
+
+let arr = [1, 2, 3];
+console.log(typeof arr);  // "object" (arrays are also objects in JS)
+
+let u;
+console.log(typeof u);  // "undefined"
+
+let n = null;
+console.log(typeof n);  // "object" (this is a known bug in JS)</code></pre>
+
+</body>
+
+</html>

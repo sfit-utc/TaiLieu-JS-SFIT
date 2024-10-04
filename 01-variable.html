@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khai báo biến trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #333;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Khai báo biến trong JavaScript</h1>
+
+    <h2>1. Khai báo biến với <code>var</code></h2>
+    <h3>Cú pháp:</h3>
+    <pre><code>var tenBien = giaTri;</code></pre>
+
+    <h3>Đặc điểm:</h3>
+    <ul>
+        <li>Biến <code>var</code> có thể được khai báo lại và gán lại giá trị trong cùng phạm vi.</li>
+        <li>Phạm vi của biến <code>var</code> là <strong>phạm vi hàm</strong> hoặc <strong>phạm vi toàn cục</strong> nếu
+            khai báo bên ngoài hàm.</li>
+        <li><code>var</code> có tính năng <strong>hoisting</strong>: biến được đưa lên đầu phạm vi trước khi thực thi
+            mã.</li>
+    </ul>
+
+    <h3>Sử dụng <code>console.log</code> trước khi khai báo:</h3>
+    <p>Khi sử dụng <code>console.log</code> trước khi khai báo biến với <code>var</code>, biến sẽ được hoisting lên đầu
+        phạm vi và nhận giá trị <code>undefined</code>.</p>
+    <h4>Ví dụ:</h4>
+    <pre><code>console.log(a);  // undefined
+var a = 5;
+console.log(a);  // 5</code></pre>
+    <p>Giải thích: Mặc dù biến <code>a</code> được hoisting, giá trị của nó chưa được khởi tạo nên ban đầu là
+        <code>undefined</code>.</p>
+
+    <h3>Ưu điểm:</h3>
+    <ul>
+        <li>Đơn giản, dễ sử dụng trong các chương trình nhỏ.</li>
+    </ul>
+
+    <h3>Nhược điểm:</h3>
+    <ul>
+        <li>Dễ gây ra lỗi do hoisting và phạm vi toàn cục.</li>
+        <li>Không hỗ trợ block scope (phạm vi khối).</li>
+    </ul>
+
+    <h2>2. Khai báo biến với <code>let</code></h2>
+    <h3>Cú pháp:</h3>
+    <pre><code>let tenBien = giaTri;</code></pre>
+
+    <h3>Đặc điểm:</h3>
+    <ul>
+        <li>Biến <code>let</code> có thể gán lại giá trị nhưng <strong>không thể khai báo lại</strong> trong cùng phạm
+            vi.</li>
+        <li>Phạm vi của <code>let</code> là <strong>phạm vi khối</strong> (block scope) - các khối lệnh được bao quanh
+            bởi <code>{}</code>.</li>
+        <li>Không có tính năng hoisting giống như <code>var</code>.</li>
+    </ul>
+
+    <h3>Sử dụng <code>console.log</code> trước khi khai báo:</h3>
+    <p>Khi sử dụng <code>console.log</code> trước khi khai báo biến với <code>let</code>, JavaScript sẽ gây ra lỗi
+        <strong>ReferenceError: Cannot access 'tenBien' before initialization</strong>. Điều này xảy ra do biến
+        <code>let</code> nằm trong <strong>Temporal Dead Zone (TDZ)</strong> cho đến khi được khởi tạo.</p>
+    <h4>Ví dụ:</h4>
+    <pre><code>console.log(b);  // ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+console.log(b);  // 10</code></pre>
+    <p>Giải thích: Biến <code>b</code> nằm trong TDZ cho đến khi dòng khai báo <code>let b = 10</code> được thực thi.
+    </p>
+
+    <h3>Ưu điểm:</h3>
+    <ul>
+        <li>Tránh được nhiều lỗi liên quan đến hoisting và phạm vi biến.</li>
+        <li>Thích hợp với các dự án lớn và phức tạp hơn.</li>
+    </ul>
+
+    <h3>Nhược điểm:</h3>
+    <ul>
+        <li>Có thể khó hiểu với người mới học do phạm vi khối.</li>
+    </ul>
+
+    <h2>3. Khai báo biến với <code>const</code></h2>
+    <h3>Cú pháp:</h3>
+    <pre><code>const tenBien = giaTri;</code></pre>
+
+    <h3>Đặc điểm:</h3>
+    <ul>
+        <li>Biến <code>const</code> <strong>không thể gán lại</strong> sau khi đã được khởi tạo.</li>
+        <li>Phạm vi của <code>const</code> cũng là <strong>phạm vi khối</strong> (block scope).</li>
+        <li><code>const</code> có thể giữ tham chiếu tới các đối tượng, và bản thân đối tượng đó có thể thay đổi.</li>
+    </ul>
+
+    <h3>Sử dụng <code>console.log</code> trước khi khai báo:</h3>
+    <p>Giống như <code>let</code>, nếu sử dụng <code>console.log</code> trước khi khai báo biến với <code>const</code>,
+        JavaScript sẽ gây ra lỗi <strong>ReferenceError</strong>. Biến <code>const</code> cũng nằm trong
+        <strong>Temporal Dead Zone (TDZ)</strong> và không thể truy cập trước khi được khởi tạo.</p>
+    <h4>Ví dụ:</h4>
+    <pre><code>console.log(c);  // ReferenceError: Cannot access 'c' before initialization
+const c = 15;
+console.log(c);  // 15</code></pre>
+
+    <h3>Ưu điểm:</h3>
+    <ul>
+        <li>Giúp đảm bảo tính bất biến cho các giá trị không đổi.</li>
+        <li>Rất hữu ích khi làm việc với các cấu trúc dữ liệu phức tạp.</li>
+    </ul>
+
+    <h3>Nhược điểm:</h3>
+    <ul>
+        <li>Chỉ sử dụng khi thực sự cần giá trị bất biến.</li>
+    </ul>
+
+    <h2>4. Biến toàn cục (Global Variables) và biến cục bộ (Local Variables)</h2>
+
+    <h3>Biến toàn cục:</h3>
+    <ul>
+        <li>Biến toàn cục là biến có phạm vi toàn cục, có thể được truy cập từ bất kỳ đâu trong chương trình, kể cả bên
+            trong các hàm.</li>
+        <li><strong>Cảnh báo:</strong> Sử dụng quá nhiều biến toàn cục có thể gây ra tình trạng <strong>global namespace
+                pollution</strong> (ô nhiễm không gian tên toàn cục), dẫn đến xung đột biến giữa các phần khác nhau
+            trong chương trình.</li>
+    </ul>
+
+    <h3>Biến cục bộ:</h3>
+    <ul>
+        <li>Biến cục bộ chỉ tồn tại trong phạm vi của hàm hoặc khối lệnh nơi nó được khai báo. Chúng không thể được truy
+            cập từ bên ngoài phạm vi này.</li>
+    </ul>
+
+    <h4>Ví dụ:</h4>
+    <pre><code>var globalVar = "This is a global variable";
+
+function test() {
+    var localVar = "This is a local variable";
+    console.log(globalVar);  // This is a global variable
+    console.log(localVar);   // This is a local variable
+}
+test();
+console.log(localVar);       // Lỗi: localVar is not defined</code></pre>
+
+    <h3>Kết luận:</h3>
+    <ul>
+        <li>Biến toàn cục nên được hạn chế sử dụng để tránh xung đột và dễ dàng quản lý mã hơn.</li>
+        <li>Biến cục bộ nên được sử dụng khi chỉ cần biến trong phạm vi cụ thể.</li>
+    </ul>
+
+    <h2>5. Hoisting và Temporal Dead Zone (TDZ)</h2>
+
+    <h3>Hoisting:</h3>
+    <ul>
+        <li>Biến khai báo với <code>var</code> được hoisting và gán giá trị <code>undefined</code>.</li>
+        <li>Biến khai báo với <code>let</code> và <code>const</code> cũng được hoisting nhưng sẽ ở trạng thái
+            <strong>Temporal Dead Zone (TDZ)</strong> cho đến khi được gán giá trị.</li>
+    </ul>
+
+    <h3>Temporal Dead Zone (TDZ):</h3>
+    <ul>
+        <li><code>let</code> và <code>const</code> tồn tại trong TDZ, tức là chúng không thể truy cập cho đến khi khai
+            báo biến thực sự xảy ra trong mã.</li>
+        <li>TDZ giúp tránh việc sử dụng biến chưa được khởi tạo, giúp bảo vệ và làm rõ ràng mã hơn.</li>
+    </ul>
+
+
+    <h2>6. Tóm tắt</h2>
+    <ul>
+        <li><code>var</code>: Phạm vi toàn cục hoặc hàm, có hoisting, có thể khai báo lại.</li>
+        <li><code>let</code>: Phạm vi khối, có hoisting, không thể khai báo lại.</li>
+        <li><code>const</code>: Phạm vi khối, không thể gán lại, giữ tham chiếu.</li>
+        <li>Biến toàn cục và cục bộ ảnh hưởng đến cách biến được sử dụng trong mã.</li>
+        <li>Hoisting và TDZ là khái niệm quan trọng trong việc hiểu cách thức hoạt động của khai báo biến trong
+            JavaScript.</li>
+    </ul>
+
+</body>
+
+</html>

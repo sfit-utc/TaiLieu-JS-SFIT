@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        h3 {
+            color: #5D7A99;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM Manipulation trong JavaScript</h1>
+
+    <p>Kkiến thức về DOM và cách thao tác với nó trong JavaScript, bao gồm:</p>
+    <ul>
+        <li>DOM: Hiểu về Document Object Model</li>
+        <li>Chọn phần tử: <code>getElementById</code>, <code>getElementsByClassName</code>, <code>querySelector</code>, <code>querySelectorAll</code></li>
+        <li>Thêm, xóa, và thay đổi phần tử: <code>appendChild</code>, <code>removeChild</code>, <code>innerHTML</code></li>
+    </ul>
+
+    <h2>1. DOM: Hiểu về Document Object Model</h2>
+    <p>Document Object Model (DOM) là một giao diện lập trình cho phép các ngôn ngữ lập trình như JavaScript truy cập và thao tác với nội dung, cấu trúc và kiểu dáng của tài liệu HTML hoặc XML. DOM biến tài liệu thành một cây đối tượng, nơi mỗi phần tử của tài liệu trở thành một đối tượng có thể được thay đổi.</p>
+
+    <h2>2. Chọn phần tử</h2>
+    <p>JavaScript cung cấp nhiều phương thức để chọn các phần tử trong DOM:</p>
+    
+    <h3>2.1. <code>getElementById()</code></h3>
+    <p>Phương thức này được sử dụng để chọn một phần tử duy nhất bằng ID của nó:</p>
+    <pre><code>
+let element = document.getElementById("myId");
+    </code></pre>
+
+    <h3>2.2. <code>getElementsByClassName()</code></h3>
+    <p>Phương thức này được sử dụng để chọn tất cả các phần tử có cùng một lớp:</p>
+    <pre><code>
+let elements = document.getElementsByClassName("myClass");
+    </code></pre>
+
+    <h3>2.3. <code>querySelector()</code></h3>
+    <p>Phương thức này trả về phần tử đầu tiên khớp với bộ chọn CSS:</p>
+    <pre><code>
+let firstElement = document.querySelector(".myClass");
+    </code></pre>
+
+    <h3>2.4. <code>querySelectorAll()</code></h3>
+    <p>Phương thức này trả về tất cả các phần tử khớp với bộ chọn CSS:</p>
+    <pre><code>
+let allElements = document.querySelectorAll(".myClass");
+    </code></pre>
+
+    <h2>3. Thêm, xóa, và thay đổi phần tử</h2>
+    <p>Các phương thức để thao tác với phần tử trong DOM bao gồm:</p>
+
+    <h3>3.1. <code>appendChild()</code></h3>
+    <p>Phương thức này được sử dụng để thêm một phần tử mới vào cuối danh sách các phần tử con của phần tử hiện tại:</p>
+    <pre><code>
+let newElement = document.createElement("div");
+newElement.textContent = "Đây là một phần tử mới!";
+let parentElement = document.getElementById("parent");
+parentElement.appendChild(newElement);
+    </code></pre>
+
+    <h3>3.2. <code>removeChild()</code></h3>
+    <p>Phương thức này được sử dụng để xóa một phần tử con khỏi phần tử cha:</p>
+    <pre><code>
+let childElement = document.getElementById("child");
+let parentElement = document.getElementById("parent");
+parentElement.removeChild(childElement);
+    </code></pre>
+
+    <h3>3.3. <code>innerHTML</code></h3>
+    <p>Thuộc tính này được sử dụng để thay đổi nội dung HTML của phần tử:</p>
+    <pre><code>
+let element = document.getElementById("myElement");
+element.innerHTML = "<strong>Nội dung mới!</strong>";
+    </code></pre>
+
+</body>
+
+</html>

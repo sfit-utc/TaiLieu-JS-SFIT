@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xử Lý Sự Kiện trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        h3 {
+            color: #5D7A99;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Xử Lý Sự Kiện trong JavaScript</h1>
+
+    <p>Bài giảng này sẽ cung cấp kiến thức về xử lý sự kiện trong JavaScript, bao gồm:</p>
+    <ul>
+        <li>Sự kiện: Thiết lập và xử lý sự kiện (click, keyup, submit, v.v.)</li>
+        <li>Event Delegation: Cách xử lý sự kiện thông qua các bậc cha mẹ</li>
+    </ul>
+
+    <h2>1. Sự kiện</h2>
+    <p>Sự kiện là một hành động hoặc xảy ra, thường là do người dùng thực hiện, chẳng hạn như nhấp chuột, nhập văn bản,
+        hoặc gửi biểu mẫu. JavaScript cung cấp nhiều cách để thiết lập và xử lý các sự kiện.</p>
+
+    <h3>1.1. Thiết lập sự kiện</h3>
+    <p>Có hai cách chính để thiết lập sự kiện:</p>
+
+    <h4>1.1.1. Sử dụng thuộc tính HTML</h4>
+    <pre><code>
+<button onclick="handleClick()">Nhấn vào đây</button>
+
+<script>
+    function handleClick() {
+        alert("Nút đã được nhấn!");
+    }
+</script>
+    </code></pre>
+
+    <h4>1.1.2. Sử dụng phương thức <code>addEventListener()</code></h4>
+    <pre><code>
+let button = document.getElementById("myButton");
+button.addEventListener("click", function() {
+    alert("Nút đã được nhấn!");
+});
+    </code></pre>
+
+    <h3>1.2. Các loại sự kiện phổ biến</h3>
+    <ul>
+        <li><code>click</code>: Xảy ra khi người dùng nhấp chuột vào phần tử.</li>
+        <li><code>keyup</code>: Xảy ra khi người dùng nhấn phím trên bàn phím.</li>
+        <li><code>submit</code>: Xảy ra khi người dùng gửi biểu mẫu.</li>
+    </ul>
+
+    <h2>2. Event Delegation</h2>
+    <p>Event Delegation là một kỹ thuật cho phép bạn xử lý sự kiện cho nhiều phần tử con thông qua một phần tử cha. Điều
+        này có thể giúp giảm số lượng bộ lắng nghe sự kiện và tối ưu hóa hiệu suất của trang web.</p>
+
+    <h3>2.1. Cách hoạt động của Event Delegation</h3>
+    <p>Khi một sự kiện xảy ra trên một phần tử con, nó sẽ "bong bóng" lên (bubble) tới phần tử cha. Bằng cách thêm một
+        bộ lắng nghe sự kiện trên phần tử cha, bạn có thể xử lý sự kiện cho tất cả các phần tử con:</p>
+    <pre><code>
+let parent = document.getElementById("parent");
+
+parent.addEventListener("click", function(event) {
+    if (event.target.matches(".child")) {
+        alert("Một phần tử con đã được nhấn: " + event.target.textContent);
+    }
+});
+    </code></pre>
+
+    <h3>2.2. Ví dụ về Event Delegation</h3>
+    <p>Giả sử bạn có một danh sách các phần tử và muốn xử lý sự kiện nhấp chuột trên từng phần tử:</p>
+    <pre><code>
+<ul id="parent">
+    <li class="child">Phần tử 1</li>
+    <li class="child">Phần tử 2</li>
+    <li class="child">Phần tử 3</li>
+</ul>
+
+<script>
+    let parent = document.getElementById("parent");
+
+    parent.addEventListener("click", function (event) {
+        if (event.target.matches(".child")) {
+            alert("Một phần tử con đã được nhấn: " + event.target.textContent);
+        }
+    });
+</script>
+    </code></pre>
+    <p>Khi người dùng nhấp vào bất kỳ phần tử nào trong danh sách, sự kiện sẽ được xử lý và hiển thị tên của phần tử đó.
+    </p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toán tử trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Các toán tử trong JavaScript</h1>
+
+    <p>Bài giảng này sẽ cung cấp kiến thức về các toán tử trong JavaScript, bao gồm:</p>
+    <ul>
+        <li>Toán tử số học</li>
+        <li>Toán tử gán</li>
+        <li>Toán tử chuỗi</li>
+        <li>Toán tử logic</li>
+        <li>Toán tử bitwise</li>
+        <li>Toán tử so sánh</li> <!-- Thêm vào danh sách -->
+    </ul>
+
+    <h2>1. Toán tử số học</h2>
+    <p>Các toán tử số học dùng để thực hiện các phép toán trên số:</p>
+    <pre><code>
+let a = 10;
+let b = 5;
+
+// Cộng
+let sum = a + b;  // 15
+
+// Trừ
+let difference = a - b;  // 5
+
+// Nhân
+let product = a * b;  // 50
+
+// Chia
+let quotient = a / b;  // 2
+
+// Chia lấy phần dư
+let remainder = a % b;  // 0
+    </code></pre>
+
+    <h2>2. Toán tử gán</h2>
+    <p>Toán tử gán được sử dụng để gán giá trị cho biến:</p>
+    <pre><code>
+let x = 10;
+x += 5; // Tương đương với x = x + 5
+// Giá trị của x sau khi gán: 15
+    </code></pre>
+
+    <h2>3. Toán tử chuỗi</h2>
+    <p>Toán tử chuỗi dùng để nối các chuỗi lại với nhau:</p>
+    <pre><code>
+let firstName = "Nguyễn";
+let lastName = "Văn A";
+let fullName = firstName + " " + lastName; // Nguyễn Văn A
+    </code></pre>
+
+    <h2>4. Toán tử logic</h2>
+    <p>Toán tử logic được sử dụng để kết hợp các biểu thức boolean:</p>
+    <pre><code>
+let isAdult = true;
+let hasLicense = false;
+
+// AND
+let canDrive = isAdult && hasLicense; // false
+
+// OR
+let canVote = isAdult || hasLicense; // true
+
+// NOT
+let isMinor = !isAdult; // false
+    </code></pre>
+
+    <h2>5. Toán tử bitwise</h2>
+    <p>Toán tử bitwise được sử dụng để thao tác với các bit:</p>
+    <pre><code>
+let num1 = 5;  // 0101
+let num2 = 3;  // 0011
+
+// AND bitwise
+let andResult = num1 & num2; // 1 (0001)
+
+// OR bitwise
+let orResult = num1 | num2; // 7 (0111)
+
+// XOR bitwise
+let xorResult = num1 ^ num2; // 6 (0110)
+
+// NOT bitwise
+let notResult = ~num1; // -6
+    </code></pre>
+
+    <h2>6. Toán tử so sánh</h2>
+    <p>Toán tử so sánh được sử dụng để so sánh hai giá trị:</p>
+    <pre><code>
+let x = 10;
+let y = 20;
+
+// Bằng
+let isEqual = (x === y); // false
+
+// Khác
+let isNotEqual = (x !== y); // true
+
+// Lớn hơn
+let isGreater = (x > y); // false
+
+// Nhỏ hơn
+let isLess = (x < y); // true
+
+// Lớn hơn hoặc bằng
+let isGreaterOrEqual = (x >= y); // false
+
+// Nhỏ hơn hoặc bằng
+let isLessOrEqual = (x <= y); // true
+    </code></pre>
+
+</body>
+
+</html>

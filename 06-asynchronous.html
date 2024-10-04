@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Asynchronous trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        h3 {
+            color: #5D7A99;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Quản Lý Asynchronous trong JavaScript</h1>
+
+    <p>Kiến thức về quản lý các tác vụ bất đồng bộ trong JavaScript, bao gồm:</p>
+    <ul>
+        <li>Callback: Hàm gọi lại</li>
+        <li>Promise: Kiểu dữ liệu để làm việc với các tác vụ bất đồng bộ</li>
+        <li>Async/Await: Cú pháp để xử lý các hàm bất đồng bộ một cách dễ dàng</li>
+    </ul>
+
+    <h2>1. Callback</h2>
+    <p>Callback là một hàm được truyền như một đối số cho một hàm khác và sẽ được gọi lại sau khi một tác vụ hoàn tất.</p>
+    <pre><code>
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = "Dữ liệu đã được lấy!";
+        callback(data);
+    }, 2000);
+}
+
+fetchData((result) => {
+    console.log(result); // In ra: Dữ liệu đã được lấy!
+});
+    </code></pre>
+
+    <h2>2. Promise</h2>
+    <p>Promise là một đối tượng đại diện cho một giá trị có thể có trong tương lai. Promise có thể ở trong một trong ba trạng thái: pending (đang chờ), fulfilled (đã hoàn thành) hoặc rejected (đã bị từ chối).</p>
+    <h3>2.1. Tạo Promise</h3>
+    <pre><code>
+let myPromise = new Promise((resolve, reject) => {
+    const success = true; // Giả sử tác vụ thành công
+    if (success) {
+        resolve("Tác vụ thành công!");
+    } else {
+        reject("Tác vụ thất bại!");
+    }
+});
+
+// Sử dụng Promise
+myPromise
+    .then(result => console.log(result)) // In ra: Tác vụ thành công!
+    .catch(error => console.error(error));
+    </code></pre>
+
+    <h2>3. Async/Await</h2>
+    <p>Async/Await là cú pháp được giới thiệu trong ES2017 giúp xử lý các hàm bất đồng bộ một cách dễ dàng hơn. Hàm được đánh dấu bằng từ khóa <code>async</code> và bên trong hàm có thể sử dụng <code>await</code> để chờ kết quả từ một Promise.</p>
+    <h3>3.1. Sử dụng Async/Await</h3>
+    <pre><code>
+async function fetchData() {
+    try {
+        let result = await myPromise; // Chờ cho Promise hoàn thành
+        console.log(result); // In ra: Tác vụ thành công!
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+fetchData();
+    </code></pre>
+
+</body>
+
+</html>

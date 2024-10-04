@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mảng và Các Phương Thức của Mảng trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mảng và Các Phương Thức của Mảng trong JavaScript</h1>
+
+    <p>Kiến thức về mảng trong JavaScript, bao gồm cách khởi tạo, thao tác với mảng, và các phương thức của mảng.</p>
+
+    <h2>1. Khởi tạo và thao tác với mảng</h2>
+    
+    <h3>1.1 Khởi tạo mảng</h3>
+    <pre><code>
+let fruits = ["Táo", "Chuối", "Cam"]; // Khởi tạo mảng
+    </code></pre>
+
+    <h3>1.2 Thêm phần tử vào mảng</h3>
+    <pre><code>
+// Thêm vào cuối mảng
+fruits.push("Nho"); // ["Táo", "Chuối", "Cam", "Nho"]
+
+// Thêm vào đầu mảng
+fruits.unshift("Dưa Hấu"); // ["Dưa Hấu", "Táo", "Chuối", "Cam", "Nho"]
+    </code></pre>
+
+    <h3>1.3 Xóa phần tử khỏi mảng</h3>
+    <pre><code>
+// Xóa phần tử cuối mảng
+fruits.pop(); // ["Dưa Hấu", "Táo", "Chuối", "Cam"]
+
+// Xóa phần tử đầu mảng
+fruits.shift(); // ["Táo", "Chuối", "Cam"]
+    </code></pre>
+
+    <h3>1.4 Tìm kiếm phần tử trong mảng</h3>
+    <pre><code>
+let index = fruits.indexOf("Chuối"); // 1
+let exists = fruits.includes("Cam"); // true
+    </code></pre>
+
+    <h2>2. Các Phương Thức của Mảng</h2>
+    <p>Dưới đây là các phương thức thông dụng của mảng trong JavaScript:</p>
+
+    <h3>2.1. Phương thức <code>map()</code></h3>
+    <p>Phương thức <code>map()</code> tạo một mảng mới bằng cách thực hiện một hàm trên mỗi phần tử của mảng cũ.</p>
+    <pre><code>
+let numbers = [1, 2, 3, 4, 5];
+let doubled = numbers.map(num => num * 2); // [2, 4, 6, 8, 10]
+    </code></pre>
+
+    <h3>2.2. Phương thức <code>filter()</code></h3>
+    <p>Phương thức <code>filter()</code> tạo một mảng mới chứa các phần tử thoả mãn điều kiện trong hàm kiểm tra.</p>
+    <pre><code>
+let evenNumbers = numbers.filter(num => num % 2 === 0); // [2, 4]
+    </code></pre>
+
+    <h3>2.3. Phương thức <code>reduce()</code></h3>
+    <p>Phương thức <code>reduce()</code> thực hiện một hàm trên mỗi phần tử của mảng, gộp lại thành một giá trị duy nhất.</p>
+    <pre><code>
+let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0); // 15
+    </code></pre>
+
+    <h3>2.4. Phương thức <code>forEach()</code></h3>
+    <p>Phương thức <code>forEach()</code> thực hiện một hàm trên mỗi phần tử của mảng nhưng không tạo ra mảng mới.</p>
+    <pre><code>
+numbers.forEach(num => console.log(num)); // In ra từng số
+    </code></pre>
+
+    <h3>2.5. Phương thức <code>some()</code></h3>
+    <p>Phương thức <code>some()</code> kiểm tra xem có ít nhất một phần tử trong mảng thỏa mãn điều kiện không.</p>
+    <pre><code>
+let hasEvenNumber = numbers.some(num => num % 2 === 0); // true
+    </code></pre>
+
+    <h3>2.6. Phương thức <code>every()</code></h3>
+    <p>Phương thức <code>every()</code> kiểm tra xem tất cả các phần tử trong mảng có thỏa mãn điều kiện không.</p>
+    <pre><code>
+let allPositive = numbers.every(num => num > 0); // true
+    </code></pre>
+
+    <h3>2.7. Phương thức <code>find()</code></h3>
+    <p>Phương thức <code>find()</code> trả về phần tử đầu tiên thỏa mãn điều kiện trong hàm kiểm tra.</p>
+    <pre><code>
+let firstEven = numbers.find(num => num % 2 === 0); // 2
+    </code></pre>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lập Trình Hướng Đối Tượng (OOP) trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lập Trình Hướng Đối Tượng (OOP) trong JavaScript</h1>
+
+    <p>Kiến thức về lập trình hướng đối tượng (OOP) trong JavaScript, bao gồm:</p>
+    <ul>
+        <li>Đối tượng: Tạo, truy cập và thay đổi thuộc tính.</li>
+        <li>Kế thừa: Sử dụng prototype để kế thừa.</li>
+        <li>Lớp: Cách tạo lớp và sử dụng từ khóa <code>class</code> trong ES6.</li>
+    </ul>
+
+    <h2>1. Đối tượng</h2>
+    <p>Trong JavaScript, đối tượng là một tập hợp các thuộc tính và phương thức. Bạn có thể tạo, truy cập và thay đổi
+        thuộc tính của đối tượng như sau:</p>
+
+    <h3>1.1 Tạo đối tượng</h3>
+    <pre><code>
+let person = {
+    name: "Nguyễn Văn A",
+    age: 30,
+    greet: function() {
+        console.log("Xin chào, tôi là " + this.name);
+    }
+};
+    </code></pre>
+
+    <h3>1.2 Truy cập và thay đổi thuộc tính</h3>
+    <pre><code>
+// Truy cập thuộc tính
+console.log(person.name); // Nguyễn Văn A
+
+// Thay đổi thuộc tính
+person.age = 31;
+console.log(person.age); // 31
+
+// Gọi phương thức
+person.greet(); // Xin chào, tôi là Nguyễn Văn A
+    </code></pre>
+
+    <h2>2. Kế thừa</h2>
+    <p>Kế thừa cho phép một đối tượng nhận các thuộc tính và phương thức từ một đối tượng khác. Trong JavaScript, bạn có
+        thể sử dụng prototype để thực hiện kế thừa.</p>
+
+    <h3>2.1 Kế thừa bằng prototype</h3>
+    <pre><code>
+function Animal(name) {
+    this.name = name;
+}
+
+Animal.prototype.speak = function() {
+    console.log(this.name + " phát ra tiếng!");
+};
+
+function Dog(name) {
+    Animal.call(this, name); // Gọi hàm khởi tạo của lớp cha
+}
+
+// Kế thừa từ Animal
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+let dog = new Dog("Chó");
+dog.speak(); // Chó phát ra tiếng!
+    </code></pre>
+
+    <h2>3. Lớp</h2>
+    <p>Từ ES6, JavaScript hỗ trợ từ khóa <code>class</code> để định nghĩa lớp, giúp đơn giản hóa việc tạo lớp và kế
+        thừa.</p>
+
+    <h3>3.1 Tạo lớp</h3>
+    <pre><code>
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(this.name + " phát ra tiếng!");
+    }
+}
+
+class Dog extends Animal {
+    constructor(name) {
+        super(name); // Gọi hàm khởi tạo của lớp cha
+    }
+
+    speak() {
+        console.log(this.name + " sủa!");
+    }
+}
+
+let dog = new Dog("Chó");
+dog.speak(); // Chó sủa!
+    </code></pre>
+
+    <h3>3.2 Phương thức tĩnh</h3>
+    <pre><code>
+class MathUtil {
+    static add(a, b) {
+        return a + b;
+    }
+}
+
+// Sử dụng phương thức tĩnh
+console.log(MathUtil.add(5, 10)); // 15
+    </code></pre>
+
+</body>
+
+</html>
