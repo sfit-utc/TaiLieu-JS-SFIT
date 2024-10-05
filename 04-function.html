@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Các Kiểu Hàm trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        h3 {
+            color: #5D7A99;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Các Kiểu Hàm trong JavaScript</h1>
+    <p>Kiến thức về các kiểu hàm trong JavaScript, bao gồm:</p>
+    <ul>
+        <li>Hàm khai báo (Function Declaration)</li>
+        <li>Hàm biểu thức (Function Expression)</li>
+        <li>Hàm mũi tên (Arrow Function)</li>
+        <li>Hàm ẩn danh (Anonymous Function)</li>
+    </ul>
+
+    <h2>1. Hàm Khai Báo (Function Declaration)</h2>
+    <p>Hàm khai báo là cách định nghĩa hàm phổ biến nhất trong JavaScript. Bạn có thể gọi hàm trước hoặc sau khi khai báo.</p>
+    <pre><code>
+function sayHello() {
+    console.log("Xin chào!");
+}
+
+// Gọi hàm
+sayHello();  // Kết quả: Xin chào!
+    </code></pre>
+    <p>Trong hàm khai báo, bạn có thể sử dụng hoisting, nghĩa là có thể gọi hàm trước khi nó được khai báo trong mã.</p>
+
+    <h2>2. Hàm Biểu Thức (Function Expression)</h2>
+    <p>Hàm biểu thức được gán cho một biến và không thể gọi trước khi hàm được định nghĩa, do không có hoisting.</p>
+    <pre><code>
+const greet = function() {
+    console.log("Chào bạn!");
+};
+
+// Gọi hàm
+greet();  // Kết quả: Chào bạn!
+    </code></pre>
+    <p>Hàm biểu thức có thể được sử dụng trong các tình huống cần gán hàm vào biến, đối tượng hoặc làm tham số của hàm khác.</p>
+
+    <h2>3. Hàm Mũi Tên (Arrow Function)</h2>
+    <p>Hàm mũi tên là cú pháp rút gọn cho việc khai báo hàm và được giới thiệu từ ES6. Hàm này không có từ khóa <code>this</code> riêng, phù hợp để sử dụng trong các hàm callback.</p>
+    <pre><code>
+const add = (a, b) => a + b;
+
+// Gọi hàm
+console.log(add(2, 3));  // Kết quả: 5
+    </code></pre>
+    <p>Nếu hàm chỉ có một tham số hoặc chỉ một dòng lệnh, bạn có thể bỏ qua dấu ngoặc nhọn và từ khóa <code>return</code>.</p>
+
+    <h2>4. Hàm Ẩn Danh (Anonymous Function)</h2>
+    <p>Hàm ẩn danh là hàm không có tên và thường được sử dụng trong các tình huống tạm thời, chẳng hạn như truyền làm tham số cho hàm khác.</p>
+    <pre><code>
+setTimeout(function() {
+    console.log("Đã đợi 1 giây!");
+}, 1000);
+    </code></pre>
+    <p>Trong ví dụ trên, hàm ẩn danh được truyền vào hàm <code>setTimeout</code> để thực hiện sau khi đợi 1 giây.</p>
+
+</body>
+
+</html>
